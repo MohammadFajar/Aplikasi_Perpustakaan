@@ -10,6 +10,8 @@ package proyek;
  * @author Ore
  */
 import java.util.Scanner;
+
+
 public class Proyek {
 
     /**
@@ -17,10 +19,10 @@ public class Proyek {
      */
     public static void main(String[] args) {
       
-          int waktu;
+          int waktu [] [] = new int [31] [12];
           int denda;
-          int kembali = 0;
-          int pinjam = 0;
+          int kembali[] [] = new int [31][12];
+          int pinjam [] [] = new int [31] [12];
       Scanner sc = new Scanner(System.in);
         System.out.println("=====================================");
         System.out.println("SELAMAT DATANG DI PERPUSTAKAAN STIKI"); 
@@ -29,9 +31,9 @@ public class Proyek {
         
         String nama[]= new String[5];
         int nim [] = new int[5];
-        System.out.print("Nama : ");
+        System.out.print("Nama\t: ");
         nama [0]= sc.nextLine();
-        System.out.print("NIM : ");
+        System.out.print("NIM\t: ");
         nim [0] = sc.nextInt();
         System.out.println("=====================================");
         System.out.println("1.Pinjam Buku");
@@ -51,29 +53,45 @@ public class Proyek {
                 {"|4|", "Analisis & Perancangan Sistem Informasi", "Informatika"} }; 
 	
 		for (int i=0; i<5; i++){
-			for (int j=0;j<3;j++){
-				System.out.print(buku [i][j]+" ");
-			}System.out.println("");	
+			for (int j=0;j < buku[i].length;j++){
+			System.out.print(buku [i][j]+" ");
+			}
+                        System.out.println("");	
 		}
                System.out.println("=====================================");
-               System.out.print("Waktu Pinjaman Hari : ");
-               pinjam = sc.nextInt();
+               System.out.print("Lama Pinjaman (Hari) : ");
                System.out.print("Waktu Kembali : ");
-               kembali = sc.nextInt();
-
+               
+               for(int a=0; a < pinjam.length;a++ ){
+                   for(int b=0; b < pinjam[a].length ; b++){
+                    pinjam [a][b] = sc.nextInt();
+                    kembali[a][b]= sc.nextInt();
+           
+                   }
+               }
+               
         }else if (pilihan == 2){
-               waktu = kembali - pinjam;
-               //menghitung denda jika terlambat kembali
-               if (kembali > 1){
+            for(int a=0; a < pinjam.length;a++ ){
+                   for(int b=0; b < pinjam[a].length ; b++){
+                    waktu [a][b]= kembali[a][b] - pinjam[a][b];
+                    
+                if (kembali[a][b] > 1){
                    denda = 5000;
                }else{
                    denda = 0;
                }
-               int hitung;
-               hitung = denda * waktu;
+               
+               int hitung[] []= new int [2][0];
+               hitung[a][b]= denda *( waktu[a][b]);
+                   }
+               }
+              
+               //menghitung denda jika terlambat kembali
+               
                
         }else if (pilihan == 3){
             System.out.println("Terima Kasih Atas Kunjungan Anda");
+           
         }
         
     
