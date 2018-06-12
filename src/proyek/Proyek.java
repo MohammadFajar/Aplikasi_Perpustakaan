@@ -13,44 +13,28 @@ import java.util.Scanner;
 
 
 public class Proyek {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-      
-          int waktu [] [] = new int [31] [12];
-          int denda;
-          int kembali[] [] = new int [31][12];
-          int pinjam [] [] = new int [31] [12];
-      Scanner sc = new Scanner(System.in);
-        System.out.println("=====================================");
-        System.out.println("SELAMAT DATANG DI PERPUSTAKAAN STIKI"); 
-        System.out.println("=====================================");
-        System.out.println("Silahkan Isi identitas Anda : ");
-        
-        String nama[]= new String[5];
-        int nim [] = new int[5];
-        System.out.print("Nama\t: ");
-        nama [0]= sc.nextLine();
-        System.out.print("NIM\t: ");
-        nim [0] = sc.nextInt();
-        System.out.println("=====================================");
-        System.out.println("1.Pinjam Buku");
-        System.out.println("2.Kembalikan Buku");
-        System.out.println("3.Hanya Berkunjung");
-        System.out.println("=====================================");
-        System.out.print("Masukkan Pilihan Anda :");
-        int pilihan =sc.nextInt();
-        
-        if (pilihan==1){
-            System.out.println("Pilih Buku yang Akan dipinjam");
-            String [] [] buku ={
-                //{"|No|", "Judul", "Penerbit"},
-		{"|1|", "PHP Framework Code Igniter","Betha Sidik"},
-		{"|2|", "Membuat Website PHP dengan Code Igniter ", "Jubilee Enterprise"},
-		{"|3|", "Algoritma & Pemrograman Dasar 1 ED.3", "Informatika"},
-                {"|4|", "Analisis & Perancangan Sistem Informasi", "Informatika"} }; 
+    static void rak(){
+        System.out.println("|--------------------------------------------------|");
+        System.out.println("|                   DAFTAR BUKU                    |");
+        System.out.println("|--------------------------------------------------|");
+        String [] [] buku ={
+                {"|No|", "--------------------Judul-----------------------------"},
+		{"|1 |", " Penerapan Data Mining Dengan Matlab "},
+		{"|2 |", " 30 Menit Membuat Jaringan Komputer"},
+		{"|3 |", " Membuat Sendiri Jaringan  Komputer"},
+                {"|4 |", " Koleksi Lengkap Software Hacking"},
+                {"|5 |", " Konfigurasi Wireless Routerboard Mikrotik"},
+                {"|6 |", " WordPress (Pengenalan WordPress)"},
+                {"|7 |", " 101 Masalah Malware & Penangananya"},
+                {"|8 |", " Aneka Tool Penyelamat Data Komputer"},
+                {"|9 |", " Cara Cepat Menyusun Skripsi (Jurusan Informatika /Komputer)"},
+                {"|10|", " Instalasi & Konfigurasi Jaringan Windows & Linux"},
+                {"|11|", " Cepat Kuasai PHP + MySQl"},
+                {"|12|", " Belajar Pemrograman Komputer untuk Pelajar"},
+                {"|13|", " Bikin PC aman dari Serangan Virus, dan Spam Spyware"},
+                {"|14|", " Cepat dan Mudah Audio Editing dengan Sonar"},
+                {"|15|", " Kumpulan Tool dan Utility untuk PC Anda "}
+        };      
 	
 		for (int i=0; i<5; i++){
 			for (int j=0;j < buku[i].length;j++){
@@ -58,42 +42,151 @@ public class Proyek {
 			}
                         System.out.println("");	
 		}
+        System.out.println("|--------------------------------------------------|");
+        } 
+        static void menu(){
+        System.out.println("=====================================");
+        System.out.println("SELAMAT DATANG DI PERPUSTAKAAN STIKI"); 
+        System.out.println("=====================================");
+        System.out.println("Silahkan Isi identitas Anda : ");
+        }
+        static void home(){
+        System.out.println("|--------------------------------------------------|");
+        System.out.println("|               HOME PERPUSTAKAAN                  |");
+        System.out.println("|--------------------------------------------------|");
+        System.out.println("| 1.Pinjam Buku                                    |");
+        System.out.println("| 2.Kembalikan Buku                                |");
+        System.out.println("| 3.Hanya Berkunjung                               |");
+        System.out.println("|--------------------------------------------------|");
+        }
+    public static void main(String[] args) {
+         int i =0;
+         int waktu []  = new int [31];
+         int kembali[]  = new int [31];
+         int pinjam []  = new int [31];
+         int buku_pinjam [] = new int [5];
+         int denda;
+         int pilbuku = 0;
+         Scanner input = new Scanner(System.in);
+         
+        //Bagian Menu Awal
+        menu();
+        String nama[]= new String[5];
+        int nim [] = new int[5];
+        System.out.print("Nama\t: ");
+        nama [0]= input.nextLine();
+        System.out.print("NIM\t: ");
+        nim [0] = input.nextInt();
+        
+        home();
+        System.out.print("Masukkan Pilihan Anda :");
+        int pilihan = input.nextInt();
+        
+        if (pilihan==1){    
+            System.out.println("Pilih Buku yang Akan dipinjam");
+               rak();
                System.out.println("=====================================");
-               System.out.print("Lama Pinjaman (Hari) : ");
-               System.out.print("Waktu Kembali : ");
+               System.out.print("Pilih Judul Buku yang akan dipinjam : ");
+               pilbuku  = input.nextInt();
                
-               for(int a=0; a < pinjam.length;a++ ){
-                   for(int b=0; b < pinjam[a].length ; b++){
-                    pinjam [a][b] = sc.nextInt();
-                    kembali[a][b]= sc.nextInt();
-           
-                   }
+               if(pilbuku == 1){
+                   System.out.println("|--------------------------------------------------|");
+                   System.out.println("Judul\t: Penerapan Data Minign Dengan Matlab");
+                   System.out.println("Penerbit: Informatika");
+                   System.out.println("Tahun\t: Maret 2011");
+                   System.out.println("|--------------------------------------------------|");
+               }else if (pilbuku == 2 ){
+                   System.out.println("Judul\t: 30 Menit Mahir Membuat Jaringa Komputer");
+                   System.out.println("Penerbit: Dunia Komputer");
+                   System.out.println("Penulis \t: Alan Nur Hidayat");
+                   System.out.println("Tahun\t: 2013");
+               }else if(pilbuku == 3){
+                   System.out.println("Judul\t: Membuat Sendiri Jaringan  Komputer ");
+                   System.out.println("Penerbit: Elex Media Komputindo ");
+                   System.out.println("Penuis \t: Edy Winarno ST.M.ENG");
+                   System.out.println("Tahun\t: 2013");
+               } else if (pilbuku == 4){
+                   System.out.println("Judul\t: Koleksi Lengkap Software Hacking");
+                   System.out.println("Penerbit: Elex Media");
+                   System.out.println("Penulis \t: Dedik Kurniawan ");
+                   System.out.println("Tahun\t: 2013");
+               }else if (pilbuku == 5){
+                   System.out.println("Judul\t: Konfigurasi Wireless Routerboard Mikrotik");
+                   System.out.println("Penerbit: Yogyakarta");
+                   System.out.println("Penulis \t:Andy");
+                   System.out.println("Tahun\t: 2012");
+               }else if(pilbuku == 6){
+                   System.out.println("Judul\t:");
+                   System.out.println("Penerbit :");
+                   System.out.println("Penulis\t:");
+                   System.out.println("Tahun\t:");
+               }else if(pilbuku == 7){
+                   System.out.println("Judul\t:");
+                   System.out.println("Penerbit :");
+                   System.out.println("Penulis\t:");
+                   System.out.println("Tahun\t:");
+               }else if(pilbuku == 8){
+                   System.out.println("Judul\t:");
+                   System.out.println("Penerbit :");
+                   System.out.println("Penulis\t:");
+                   System.out.println("Tahun\t:");
+               }else if(pilbuku == 9){
+                   System.out.println("Judul\t:");
+                   System.out.println("Penerbit :");
+                   System.out.println("Penulis\t:");
+                   System.out.println("Tahun\t:");
+               }else if(pilbuku == 10){
+                   System.out.println("Judul\t:");
+                   System.out.println("Penerbit :");
+                   System.out.println("Penulis\t:");
+                   System.out.println("Tahun\t:");
+               }else if(pilbuku == 11){
+                   System.out.println("Judul\t:");
+                   System.out.println("Penerbit :");
+                   System.out.println("Penulis\t:");
+                   System.out.println("Tahun\t:");
+               }else if(pilbuku == 12){
+                   System.out.println("Judul\t:");
+                   System.out.println("Penerbit :");
+                   System.out.println("Penulis\t:");
+                   System.out.println("Tahun\t:");
+               }else if(pilbuku == 13){
+                   System.out.println("Judul\t:");
+                   System.out.println("Penerbit :");
+                   System.out.println("Penulis\t:");
+                   System.out.println("Tahun\t:");
+               }else if(pilbuku == 14){
+                   System.out.println("Judul\t:");
+                   System.out.println("Penerbit :");
+                   System.out.println("Penulis\t:");
+                   System.out.println("Tahun\t:");
+               }else if(pilbuku == 15){
+                   System.out.println("Judul\t:");
+                   System.out.println("Penerbit :");
+                   System.out.println("Penulis\t:");
+                   System.out.println("Tahun\t:");
+               }else {
+                   System.out.println("Pilihan Anda Salah");
                }
-               
+              System.out.println("Batas Peminjaman  : 3 Hari");
+              System.out.print("Tanggal Pinjam : ");
+              pinjam [i] = input.nextInt();
+                  
         }else if (pilihan == 2){
-            for(int a=0; a < pinjam.length;a++ ){
-                   for(int b=0; b < pinjam[a].length ; b++){
-                    waktu [a][b]= kembali[a][b] - pinjam[a][b];
-                    
-                if (kembali[a][b] > 1){
-                   denda = 5000;
-               }else{
-                   denda = 0;
-               }
+           rak();
+            System.out.println("Buku yang akan dikembalikan : ");
+            System.out.println("Tanggal Kembali : ");
+            kembali [i] = input.nextInt();
+            if(kembali[i] <=1){
+                denda = 0;
+            }else if(kembali[i] >= 2){
+                denda = 2000;
+            }
+            
                
-               int hitung[] []= new int [2][0];
-               hitung[a][b]= denda *( waktu[a][b]);
-                   }
-               }
-              
-               //menghitung denda jika terlambat kembali
-               
-               
-        }else if (pilihan == 3){
+        }else if (pilihan == 3) {
             System.out.println("Terima Kasih Atas Kunjungan Anda");
            
-        }
-        
-    
+        }  
     }
 }
